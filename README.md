@@ -4,7 +4,12 @@ Dockerize Laravel application using containers such as nginx server, php, mysql 
 
 ## Installation
 
-Run `sh avengers-assemble.sh` on the root folder of this repository.
+Setup `.env` file in `src` folder. <br />
+Run `run/commands` on the root folder of this repository and choose command from console UI.
+
+### Notes
+
+Run artisan commands like `php artisan migrate`, since it uses docker containers, use this command `docker-compose run --rm artisan migrate` to run artisan commands. 
 
 ## Usage
 

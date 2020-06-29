@@ -1,7 +1,7 @@
 version: '3'
 
 networks:
-    plans-head:
+    laravel-dev:
 
 volumes:
     environment-data:
@@ -14,12 +14,12 @@ services:
             - "8880:80"
         volumes:
             - ./src:/var/www/html
-            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+            - ./operations/nginx/default.conf:/etc/nginx/conf.d/default.conf
         depends_on: 
             - php
             - mysql
         networks:
-            - plans-head
+            - laravel-dev
     mysql:
         image: mysql:5.7.22
         container_name: plans-head-mysql-server
@@ -35,7 +35,7 @@ services:
             SERVICE_TAGS: dev
             SERVICE_NAME: mysql
         networks:
-            - plans-head
+            - laravel-dev
     php:
         build:
             context: .
@@ -46,7 +46,7 @@ services:
         ports:
             - "9000:9000"
         networks:
-            - plans-head
+            - laravel-dev
     phpmyadmin:
         image: phpmyadmin/phpmyadmin:4.9
         container_name: plans-head-phpmyadmin
@@ -60,7 +60,7 @@ services:
             - PMA_HOST=mysql
             - PMA_PORT=3306
         networks:
-            - plans-head
+            - laravel-dev
     composer:
         image: composer:latest
         container_name: plans-head-composer
@@ -68,7 +68,7 @@ services:
             - ./src:/var/www/html
         working_dir: /var/www/html
         networks:
-            - plans-head
+            - laravel-dev
     npm:
         image: node:12.18
         container_name: plans-head-npm
@@ -77,7 +77,7 @@ services:
         working_dir: /var/www/html
         entrypoint: ['npm']
         networks:
-            - plans-head
+            - laravel-dev
     artisan:
         build:
             context: .
@@ -90,4 +90,4 @@ services:
         working_dir: /var/www/html
         entrypoint: ['/var/www/html/artisan']
         networks:
-            - plans-head
+            - laravel-dev
