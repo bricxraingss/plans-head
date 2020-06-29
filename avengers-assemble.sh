@@ -10,10 +10,10 @@ LIGHTCYAN='\033[1;36m'
 NOCOLOR='\033[0m'
 
 echo "\n${RED}Stopping containers ...${NOCOLOR}\n"
-docker stop plans-head-php plans-head-nginx-server plans-head-mysql-server plans-head-phpmyadmin
+docker stop plans-head-php plans-head-nginx-server plans-head-phpmyadmin
 
 echo "\n${GREEN}Removing containers ...${NOCOLOR}\n"
-docker rm plans-head-php plans-head-nginx-server plans-head-mysql-server plans-head-phpmyadmin
+docker rm plans-head-php plans-head-nginx-server plans-head-phpmyadmin
 
 echo "\n${YELLOW}Build and up all containers ...${NOCOLOR}\n"
 docker-compose up -d --build
