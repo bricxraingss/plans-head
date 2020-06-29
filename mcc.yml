@@ -1,0 +1,53 @@
+---
+    schema_version: v1.1.0
+    timezone: Asia/Tokyo
+    widgets:   
+      - id: Docker
+        type: menu
+        title: Docker Configurations
+        content:
+          - category: docker
+            name: Run fresh installation
+            description: Run fresh PLANS HEAD installation
+            command: sh operations/commands/docker/start.sh
+    
+          - category: docker
+            name: Restart all containers
+            description: Restart all PLANS HEAD docker containers
+            command: sh operations/commands/docker/restart.sh
+            
+          - category: docker
+            name: Stop all containers
+            description: Stop all PLANS HEAD docker containers
+            command: sh operations/commands/docker/stop.sh
+          
+          - category: docker
+            name: Destroy all containers
+            description: Destroy all PLANS HEAD docker containers
+            command: sh operations/commands/docker/destroy.sh
+
+      - id: Artisan
+        type: menu
+        title: PHP Artisan Commands
+        content:
+          - category: artisan
+            name: Migrate all tables
+            description: php artisan migrate
+            command: sh operations/commands/artisan/migrate.sh
+    
+    layout:
+      - name: DASHBOARD
+        rows:
+          - height: 100%
+            cols:
+              - width: 7
+                stacks:
+                  - id: Docker
+                    height: 100%
+              - width: 5
+                stacks:
+                  - id: Artisan
+                    height: 100%
+    
+    
+    
