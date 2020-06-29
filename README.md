@@ -4,7 +4,7 @@ Dockerize Laravel application using containers such as nginx server, php, mysql 
 
 ## Installation
 
-Setup `.env` file in `src` folder.
+Setup `.env` file in `src` folder. <br />
 Run `sh avengers-assemble.sh` on the root folder of this repository.
 
 ### Notes
