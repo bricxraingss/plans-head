@@ -12,6 +12,7 @@
 */
 
 Route::prefix('/')->group(function(){
+  Route::get('/', 'WelcomeController@welcome');
   Route::get('create', 'User\UsersController@create')->name('user.create');
   Route::post('store', 'User\UsersController@store')->name('user.store');
   Route::get('login', 'User\UsersController@login')->middleware('guest')->name('user.login');
