@@ -68,7 +68,7 @@
             
             <div class="top-right links">
                 @auth
-                    <a href="{{ url('/dashboard') }}">Home</a>
+                    <a href="{{ url('/') }}">Home</a>
                 @else
                     <a href="{{ route('user.login') }}">Login</a>
                     <a href="{{ route('user.create') }}">Register</a>                
